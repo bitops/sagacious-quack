@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, SimpleTableViewControllerDelegate, UITableViewDelegate {
+class ViewController: UIViewController, SimpleTableViewControllerDelegate {
     
     var x = UIView()
     var y = UIView()
@@ -29,7 +29,6 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate, UITab
         
         var tableViewController = SimpleTableViewController()
         tableViewController.delegate = self
-        tableViewController.tableView.delegate = self
         tableViewController.tableView.frame = containerView.bounds
         tableViewController.tableView.backgroundColor = UIColor.lightGrayColor()
         tableViewController.tableView.scrollsToTop = false
@@ -40,7 +39,7 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate, UITab
     }
     
     func didSelectRowAtIndexPath(indexPath: NSIndexPath) {
-        NSLog("invoked didSelectRowAtIndexPath with \(indexPath.row)")
+        NSLog("[ViewController] invoked didSelectRowAtIndexPath with \(indexPath.row)")
     }
     
     func setupSquares() {
