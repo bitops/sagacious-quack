@@ -11,6 +11,8 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
     let delayTime = 0.25;
     
     let animationTime = 0.25;
+    
+    var tableViewController = SimpleTableViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +26,16 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
         
         containerView.frame = CGRectMake(frameWidth, originalY, 250, frameHeight)
         containerView.backgroundColor = UIColor.magentaColor()
+        containerView.clipsToBounds = false
         
         view.addSubview(containerView)
         
-        var tableViewController = SimpleTableViewController()
         tableViewController.delegate = self
         tableViewController.tableView.frame = containerView.bounds
         tableViewController.tableView.backgroundColor = UIColor.lightGrayColor()
         tableViewController.tableView.scrollsToTop = false
-        tableViewController.tableView.separatorStyle = .SingleLineEtched
+        tableViewController.tableView.separatorStyle = .None
+        tableViewController.tableView.contentInset = UIEdgeInsets(top: 64.0, left: 0, bottom: 0, right: 0)
         tableViewController.tableView.reloadData()
 
         containerView.addSubview(tableViewController.tableView)
@@ -43,10 +46,10 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
     }
     
     func setupSquares() {
-        x.frame = CGRectMake(50, 50, 100, 100)
+        x.frame = CGRectMake(100, 100, 100, 100)
         x.backgroundColor = UIColor.redColor()
         
-        y.frame = CGRectMake(150, 150, 100, 100)
+        y.frame = CGRectMake(200, 200, 100, 100)
         y.backgroundColor = UIColor.blueColor()
         
         view.addSubview(x)
@@ -62,14 +65,18 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
         UIView.animateWithDuration(animationTime, delay: 0, options: .CurveLinear, animations: {
             self.view.frame = CGRectMake(self.originalX - 250, self.originalY, self.view.frame.width, self.view.frame.height)
             self.containerView.frame = CGRectMake(self.frameWidth, self.originalY, 250, self.frameHeight)
-        }, completion: nil)
+            }, completion: { (var b) -> Void in
+                
+        })
     }
     
     @IBAction func pull() {
         UIView.animateWithDuration(animationTime, delay: 0, options: .CurveLinear, animations: {
             self.view.frame = CGRectMake(self.originalX, self.originalY, self.view.frame.width, self.view.frame.height)
             self.containerView.frame = CGRectMake(self.frameWidth, self.originalY, 250, self.frameHeight)
-        }, completion: nil)
+            }, completion: { (var b) -> Void in
+                
+        })
     }
     
     
@@ -78,11 +85,11 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
         y.removeFromSuperview()
        
         x = UIView()
-        x.frame = CGRectMake(50, 50, 100, 100)
+        x.frame = CGRectMake(100, 100, 100, 100)
         x.backgroundColor = UIColor.redColor()
         
         y = UIView()
-        y.frame = CGRectMake(150, 150, 100, 100)
+        y.frame = CGRectMake(200, 200, 100, 100)
         y.backgroundColor = UIColor.blueColor()
         
         view.addSubview(x)
@@ -94,27 +101,27 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
         UIView.animateWithDuration(animationDuration,
             animations: {
                 self.x.backgroundColor = UIColor.greenColor()
-                self.x.frame = CGRectMake(50, 150, 100, 100)
+                self.x.frame = CGRectMake(100, 200, 100, 100)
                 
                 self.y.backgroundColor = UIColor.greenColor()
-                self.y.frame = CGRectMake(150, 50, 100, 100)
+                self.y.frame = CGRectMake(200, 100, 100, 100)
                 
             },
             completion: { (var b) in
                 UIView.animateWithDuration(self.animationDuration, delay: self.delayTime / 2, options: .CurveEaseOut, animations: {
                     self.x.backgroundColor = UIColor.purpleColor()
-                    self.x.frame = CGRectMake(150, 150, 100, 100)
+                    self.x.frame = CGRectMake(200, 200, 100, 100)
                     
                     self.y.backgroundColor = UIColor.purpleColor()
-                    self.y.frame = CGRectMake(50, 50, 100, 100)
+                    self.y.frame = CGRectMake(100, 100, 100, 100)
                     
                     }, completion: { (var b) in
                         UIView.animateWithDuration(self.animationDuration, delay: self.delayTime / 4, options: .CurveEaseOut, animations: {
                             self.x.backgroundColor = UIColor.redColor()
-                            self.x.frame = CGRectMake(50, 50, 100, 100)
+                            self.x.frame = CGRectMake(100, 100, 100, 100)
                             
                             self.y.backgroundColor = UIColor.blueColor()
-                            self.y.frame = CGRectMake(150, 150, 100, 100)
+                            self.y.frame = CGRectMake(200, 200, 100, 100)
                             
                             }, completion: { (var b) in
                                 UIView.animateWithDuration(1.5) {
@@ -127,8 +134,8 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
     
     private func rotate() {
         let angle : CGFloat = 90.0;
-        self.x.frame = CGRectMake(50, 50, 100, 100)
-        self.y.frame = CGRectMake(150, 150, 100, 100)
+        self.x.frame = CGRectMake(100, 100, 100, 100)
+        self.y.frame = CGRectMake(200, 200, 100, 100)
         self.x.transform = CGAffineTransformMakeRotation(angle)
         self.y.transform = CGAffineTransformMakeRotation(-angle)
     }

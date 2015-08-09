@@ -8,27 +8,31 @@ class SimpleTableViewController: UITableViewController {
     
     var delegate : SimpleTableViewControllerDelegate?
     
-    var items  = ["Ginger", "Lime"]
+    var items  = [
+        "Ginger",
+        "Lime"
+    ]
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        NSLog("[SimpleTableViewController] numberOfSectionsInTableView")
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("[SimpleTableViewController] numberOfRowsInSection - \(items.count)")
-        return 2
+        return items.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        NSLog("[SimpleTableViewController] cellForRowAtIndexPath")
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = items[indexPath.row]
-        return cell
+        var cell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
+        
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+            cell!.textLabel?.text = items[indexPath.row]
+        }
+        
+        return cell!
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        NSLog("[SimpleTableViewController] heightForRowAtIndexPath")
         return 45.0
     }
     
