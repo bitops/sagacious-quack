@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SimpleTableViewControllerDelegate, UITableViewDelegate {
     
     var x = UIView()
     var y = UIView()
@@ -13,16 +13,6 @@ class ViewController: UIViewController {
     let animationTime = 0.25;
 
     override func viewDidLoad() {
-        func setupSquares() {
-            x.frame = CGRectMake(50, 50, 100, 100)
-            x.backgroundColor = UIColor.redColor()
-            
-            y.frame = CGRectMake(150, 150, 100, 100)
-            y.backgroundColor = UIColor.blueColor()
-            
-            view.addSubview(x)
-            view.addSubview(y)
-        }
         super.viewDidLoad()
         
         setupSquares()
@@ -33,9 +23,35 @@ class ViewController: UIViewController {
         frameWidth  = self.view.frame.width
         
         containerView.frame = CGRectMake(frameWidth, originalY, 250, frameHeight)
-        containerView.backgroundColor = UIColor.redColor()
+        containerView.backgroundColor = UIColor.magentaColor()
         
         view.addSubview(containerView)
+        
+        var tableViewController = SimpleTableViewController()
+        tableViewController.delegate = self
+        tableViewController.tableView.delegate = self
+        tableViewController.tableView.frame = containerView.bounds
+        tableViewController.tableView.backgroundColor = UIColor.lightGrayColor()
+        tableViewController.tableView.scrollsToTop = false
+        tableViewController.tableView.separatorStyle = .SingleLineEtched
+        tableViewController.tableView.reloadData()
+
+        containerView.addSubview(tableViewController.tableView)
+    }
+    
+    func didSelectRowAtIndexPath(indexPath: NSIndexPath) {
+        NSLog("invoked didSelectRowAtIndexPath with \(indexPath.row)")
+    }
+    
+    func setupSquares() {
+        x.frame = CGRectMake(50, 50, 100, 100)
+        x.backgroundColor = UIColor.redColor()
+        
+        y.frame = CGRectMake(150, 150, 100, 100)
+        y.backgroundColor = UIColor.blueColor()
+        
+        view.addSubview(x)
+        view.addSubview(y)
     }
     
     var originalX : CGFloat!

@@ -13,6 +13,7 @@
 		9E1E97AC1B7732D5003D97FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E97AB1B7732D5003D97FE /* Images.xcassets */; };
 		9E1E97AF1B7732D5003D97FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E97AD1B7732D5003D97FE /* LaunchScreen.xib */; };
 		9E1E97BB1B7732D5003D97FE /* RighPushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E97BA1B7732D5003D97FE /* RighPushTests.swift */; };
+		9E1F0D4B1B7804BB000D59CE /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F0D4A1B7804BB000D59CE /* SimpleTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		9E1E97B41B7732D5003D97FE /* RighPushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RighPushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E1E97B91B7732D5003D97FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E1E97BA1B7732D5003D97FE /* RighPushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RighPushTests.swift; sourceTree = "<group>"; };
+		9E1F0D4A1B7804BB000D59CE /* SimpleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				9E1E97AB1B7732D5003D97FE /* Images.xcassets */,
 				9E1E97AD1B7732D5003D97FE /* LaunchScreen.xib */,
 				9E1E97A21B7732D5003D97FE /* Supporting Files */,
+				9E1F0D4A1B7804BB000D59CE /* SimpleTableViewController.swift */,
 			);
 			path = RighPush;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1F0D4B1B7804BB000D59CE /* SimpleTableViewController.swift in Sources */,
 				9E1E97A71B7732D5003D97FE /* ViewController.swift in Sources */,
 				9E1E97A51B7732D5003D97FE /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				9E1E97C01B7732D5003D97FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9E1E97C11B7732D5003D97FE /* Build configuration list for PBXNativeTarget "RighPushTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				9E1E97C31B7732D5003D97FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
