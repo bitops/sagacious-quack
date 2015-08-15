@@ -38,7 +38,9 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
         tableViewController.tableView.contentInset = UIEdgeInsets(top: 64.0, left: 0, bottom: 0, right: 0)
         tableViewController.tableView.reloadData()
 
+        addChildViewController(tableViewController)
         containerView.addSubview(tableViewController.tableView)
+        tableViewController.didMoveToParentViewController(self)
     }
     
     func didSelectRowAtIndexPath(indexPath: NSIndexPath) {
