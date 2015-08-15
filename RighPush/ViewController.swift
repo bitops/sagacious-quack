@@ -30,7 +30,10 @@ class ViewController: UIViewController, SimpleTableViewControllerDelegate {
         
         view.addSubview(containerView)
         
+        tableViewController.items = ["Lemon", "Lime", "Agave"]
         tableViewController.delegate = self
+        tableViewController.tableView.dataSource = tableViewController
+        tableViewController.tableView.delegate = tableViewController
         tableViewController.tableView.frame = containerView.bounds
         tableViewController.tableView.backgroundColor = UIColor.lightGrayColor()
         tableViewController.tableView.scrollsToTop = false

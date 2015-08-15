@@ -8,10 +8,7 @@ class SimpleTableViewController: UITableViewController {
     
     var delegate : SimpleTableViewControllerDelegate?
     
-    var items  = [
-        "Ginger",
-        "Lime"
-    ]
+    var items : Array<String>  = []
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
