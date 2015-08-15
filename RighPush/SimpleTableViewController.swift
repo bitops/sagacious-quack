@@ -22,9 +22,9 @@ class SimpleTableViewController: UITableViewController {
         var cell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
         
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-            cell!.textLabel?.text = items[indexPath.row]
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")            
         }
+        cell!.textLabel?.text = items[indexPath.row]
         
         return cell!
     }
